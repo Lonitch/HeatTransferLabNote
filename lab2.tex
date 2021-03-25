@@ -1,0 +1,150 @@
+\chapter{Basics of Heat Conduction, Inductively}
+    In this note, we summarize basics of heat conduction using inductive logic. By doing so we may be able to internalize important things by building conceptual connections among them. Hopefully, Delivering the content inductively can make one feels that we are building a tunnel together from nowhere to a place where things can be understood in terms of temperature gradient, Fourier's law, and heat flux.
+
+\section{Two concepts: Thermal energy and Specific Heat}
+We first deduce a relationship between thermal energy and specific heat. In a heat transfer analysis we essentially deal with thermal energy flow from hot regions to cold regions. Such energy transfer process is manifested by time-(in)dependent temperature distributions. Inspired by these facts, we conclude that there must be a relationship between heat energy and temperature. Like many other physical problems, we don't have an "absolute reference" to define the zero point of thermal energy. Instead, we only care about the differences in thermal energy between two objects/regions. So it is most likely that difference in thermal energy is directly related to temperature difference. In other words, the thermal energy difference $\Delta Q$, is a function of temperature difference $\Delta T$, i.e., 
+
+\begin{equation}
+    \Delta Q = f(\Delta T)
+    \label{eq2-1}
+\end{equation}
+
+To figure out the exact form of the function in Eq.(\ref{eq2-1}), we need help from Joseph Black, a scottish experimentalist who found that 
+\begin{docspec}
+    \textbf{"equal masses of different substances require different among of heating time to reach a preset target temperature."}
+\end{docspec}
+
+Let's assume that the heater Joseph used had a steady power output, $P$, then, the thermal energy injected into each substance in Joseph's experiment can be calculated as the product of $P$ and heating time $t$, i.e., $\Delta Q=P\times t$. By plotting $\Delta Q$ versus $\Delta T$ of each substance, Joseph found a linear relation which says
+
+\begin{equation}
+    \Delta Q = \alpha\Delta T,
+    \label{eq2-2}
+\end{equation}
+
+with $\alpha$ being a constant, different for each substance. Because two objects made of identical substance but differring in masses require different amount of thermal energy to achieve a given temperature, we know $\alpha$ varies with mass $m$. If we fix $\Delta T$ in Eq.(\ref{eq2-2}) and vary the sample mass in Joseph's experiment, we can further plot $\Delta Q$ versus $m$ to find that
+
+\begin{equation}
+    \Delta Q = mc_p\Delta T,
+    \label{eq2-3}
+\end{equation}
+
+where $c_p$ is a coefficient called \textbf{specific heat}\index{specific heat}, and has an unit of energy per mass. In 1819, French chemist Pierre-Louis Dulong and the French physicist Alexis-Thérèse Petit\index{Dulong–Petit law} found that 
+
+\begin{docspec}
+    \textbf{"atomic weight times specific heat of an element is a constant", i.e., Dulong–Petit law.}
+\end{docspec} 
+
+Since then, people use such law to measure atomic weights for different elements. During the first decade of 20th century, Dulong-Petit law was found broken as specific heat of any substance exponentially decreases when environmental temperature drops to a extremely low value. The deviation from Dulong-Petit Law inspired Einstein and Debye to understand the root of specific heat in terms of \textbf{lattice vibrations}. It was Debye who first treated lattice vibrations as bosonic particles, called \textbf{phonons}\footnote{\href{https://en.wikipedia.org/wiki/Debye_model}{Debye's model on Wikipedia}}. Debye's model, along with Planck's law of black body radiation, marked the beginning of quantum mechanics.
+
+Obviously, Eq.(\ref{eq2-3}) is not handy to use as we are not excited to know the mass of the substance on which we observe heat transfer phenomena. To make Eq.(\ref{eq2-3}) more general, we normalize both sides of the equation by a characteristic volume to give
+
+\begin{equation}
+    \Delta\mathcal{Q}=\rho c_p\Delta T.
+    \label{eq2-4}
+\end{equation}
+
+We now have the mass density $\rho$ in Eq.(\ref{eq2-4}), and we will use this equation later to derive heat equation in 1D media.
+
+\section{Fourier's Law: Governing Equation for Heat Transport in Materials}
+
+As what alluded above, the capacity of a material storing thermal energy can be attributed to lattice vibrations. However, **it is electrons that transport thermal energy within a material**. People know this because of the Seebeck effect where a potential difference is built between two ends of a wire because of heat transport. From this point of view, we need a new equation to describe the rate of heat transport. To derive such a equation, we first define the concept of "\textbf{heat flux}"\index{heat flux},$q$, as \textbf{flow of thermal energy per unit area per unit time. It has a unit of watts/area}. In his experimental paper published in 1822, Fourier concluded that 
+
+\begin{docspec}
+    \textbf{"the heat flux resulting from thermal conduction is proportional to the magnitude of the temperature gradient and opposite to it in sign."}
+\end{docspec}
+
+From this conclustion, Fourier's law\index{Fourier's law} can be written as:
+
+\begin{equation}
+    q=-\kappa\nabla T,
+    \label{eq2-5}
+\end{equation}
+
+where $\kappa$ is a coefficient called \textbf{thermal conductivity}\index{thermal conductivity}. Eq.(\ref{eq2-5}), along with the concept of thermal flux, sets up a stage for us to make an \textbf{analogy between heat conduction and electric current}. In an electric circuit, we have a relationship among resistance $R$, voltage $V$, current density $i$, and cross-section area $A$, as
+
+\begin{equation}
+    \Delta V=i\times A\times R.
+    \label{eq2-6}
+\end{equation}
+
+The current density $i$ is defined as the amount of electrons passing through per unit area per unit time. Now, if we imagine the heat conduction as a process of energy flowing through a material, we can replace current $i$ in (\ref{eq2-6}) with heat flux $q$, and replace potential difference $\Delta V$ with $\Delta T$ to give,
+
+\begin{equation}
+    \Delta T = q\times A\times R_t.
+    \label{eq2-7}
+\end{equation}
+
+Eq.(\ref{eq2-7}) gives the definition of "\textbf{thermal resistance}"\index{thermal resistance}. For an isotropic 1D material of length $L$, if temperatures at two ends are \begin{math}T_2\end{math} and \begin{math}T_{1}\end{math}, Eq.(\ref{eq2-5}) can be written as
+
+\begin{equation}
+    q=-\kappa\nabla T=-\kappa\frac{T_2-T_1}{L},
+    \label{eq2-8}
+\end{equation}
+
+under the steady-state condition. Substituting (\ref{eq2-8}) into (\ref{eq2-7}) gives the explicit expression for $R_t$ as
+
+\begin{equation}
+    R_t=\frac{(T_{1}-T_{2})}{-\kappa(T_2-T_1)A/L}=\frac{L}{\kappa A}.
+    \label{eq2-9}
+\end{equation}
+
+With this current-heat flux analogy, we can easily apply rules of serial/parallel resistance in electric circuit to our thermal circuit. 
+
+\subsection{Contact thermal resistance}
+
+We can treat heat conduction at an interface between two bodies as heat flow through a contact thermal resistance. Let lengths of body A and B be $L_A$ and $L_B$, and their cross sections be $A$, so their thermal resistances are $R_{t,A}=\frac{L}{\kappa_AA}$ and $R_{t,B}=\frac{L_B}{\kappa_BA}$. At the interface between A and B, we don't have the concept of thermal conductivity well defined, instead, we define the \textbf{thermal conductance coefficient}\index{thermal conductance}, $h_c$, by writting the contact thermal resistance $R_{t,c}$ as $\frac{1}{h_cA}$. Therefore, the heat flow between the two bodies in contact, bodies A and B, is found as
+
+\begin{equation}
+    q=\frac{T_{1}-T_{2}}{\Delta x_{A} /\left(k_{A} A\right)+1 /\left(h_{c} A\right)+\Delta x_{B} /\left(k_{B} A\right)},
+    \label{eq2-10}
+\end{equation}
+
+where $T_1$ and $T_2$ are temperatures at two ends.
+
+\section{Heat Equation: Thermal Energy, Specific Heat, and Fourier's Law in one Place}
+
+Let's imagine an 1D rod of cross section area $A$. If we only focus on a thin slice of the rod with a thickness of $dx$, we know, from Eq.(\ref{eq2-3}) and (\ref{eq2-4}), that the change rate of thermal energy in the slice is 
+
+\begin{equation}
+    \frac{\partial Q}{\partial t}=\rho c_pA(dx)\frac{\partial T}{\partial t}.
+    \label{eq2-11}
+\end{equation}
+
+On the other hand, the heat flux at the right and left faces of the slice are $q_l$ and $q_r$. By applying the conservation law of energy, we have
+
+\begin{equation}
+    \frac{\partial Q}{\partial t}=(q_l-q_r)A.
+    \label{eq2-12}
+\end{equation}
+
+Equating the RHS of equations (\ref{eq2-11}) and (\ref{eq2-12}) gives:
+
+\begin{equation}
+    \rho c_p\frac{\partial T}{\partial t}=-\frac{\partial q}{\partial x}.
+    \label{eq2-13}
+\end{equation}
+
+Using Fourier's law at RHS of (\ref{eq2-13}), we finally arrive at the 1D \textbf{heat equation}:
+
+\begin{equation}
+    \frac{\partial T}{\partial t}=\frac{1}{\rho c_p}\frac{\partial}{\partial x}\left(\kappa\frac{\partial T}{\partial x}\right).
+    \label{eq2-14}
+\end{equation}
+
+In 3D space, Eq.(\ref{eq2-14}) is generalized as:
+
+\begin{equation}
+    \frac{1}{\alpha} \frac{\partial T}{\partial t}=\left(\frac{\partial^{2} T}{\partial x^{2}}+\frac{\partial^{2} T}{\partial y^{2}}+\frac{\partial^{2} T}{\partial z^{2}}\right).
+    \label{eq2-15}
+\end{equation}
+
+where $\alpha=\frac{\kappa}{\rho c_p}$ is the thermal diffusivity. Here we assume thermal conductivity $\kappa$ to be constant. To investigate temperature distribution on a disk, we need to write Eq.(\ref{eq2-15}) in a cylindrical coordinate as
+
+\begin{equation}
+    \frac{1}{r} \frac{\partial}{\partial r}\left(r \cdot k \frac{\partial T}{\partial r}\right)+\frac{1}{r^{2}} \frac{\partial}{\partial \phi}\left(k \frac{\partial T}{\partial \phi}\right)+\frac{\partial}{\partial z}\left(k \frac{\partial T}{\partial z}\right)=\rho c_p \frac{\partial T}{\partial t}.
+    \label{eq2-16}
+\end{equation}
+
+\section{Summary}
+
+Things are not always derived from fist principles. Fourier's law has no rigorous root in mathematical physics, even though people have tried to derive it from basic axioms of quantum mechanics\footnote{\href{https://journals.aps.org/pre/abstract/10.1103/PhysRevE.79.042101}{see here}}. But as long as people are satisfied with the concept of energy flow and heat flux, we as human being should have no problem of using it. That is, we use things before we know what they really are. Looks like that's just basics of how to build mordern civilizations.

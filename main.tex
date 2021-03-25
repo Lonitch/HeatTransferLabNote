@@ -1,0 +1,230 @@
+\documentclass[notoc,numbers,openany,UTF8]{tufte-book}
+
+\hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
+\usepackage{titlesec}
+\usepackage{lipsum}
+%%
+% Front page layout
+\makeatletter
+\renewcommand{\maketitlepage}{%
+  \begingroup%
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+  
+  \vspace*{3cm}
+  {\fontsize{20}{20}\selectfont{\@author}\par}
+
+  \vspace{3cm}
+  
+  
+  {\begin{fullwidth}\fontsize{24}{24}\selectfont\textbf\@title\par\end{fullwidth}}
+
+  \vspace{1.5cm}
+  {\fontsize{14}{14}\selectfont\textsf{University of Illinois at Urbana-Champaign, \monthyear}\par}
+
+  \endgroup
+}
+\makeatother
+
+% TOC
+\usepackage{titletoc}
+\usepackage{etoolbox}
+% show section titles
+\setcounter{tocdepth}{1}
+
+%%
+% Set font, paragraph indent etc.
+\usepackage{indentfirst}
+\usepackage{tufte-largeprint}
+
+% add numbers to chapters, sections, subsections
+\setcounter{secnumdepth}{2}
+
+% chapter format
+\titleformat{\chapter}%
+  {\huge\rmfamily\itshape\color{RoyalPurple}}% format applied to label+text
+  {\llap{\colorbox{RoyalPurple}{\parbox{1.5cm}{\hfill\itshape\huge\color{white}Lab\thechapter}}}}% label
+  {2pt}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% section format
+\titleformat{\section}%
+  {\normalfont\Large\itshape\color{RedOrange}}% format applied to label+text
+  {\llap{\colorbox{RedOrange}{\parbox{1.2cm}{\hfill\color{white}\thesection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% subsection format
+\titleformat{\subsection}%
+  {\normalfont\large\itshape\color{BlueGreen}}% format applied to label+text
+  {\llap{\colorbox{BlueGreen}{\parbox{1.2cm}{\hfill\color{white}\thesubsection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+
+%%
+% For nicely typeset tabular material
+\usepackage{booktabs}
+
+%%
+% For graphics / images
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+%%
+% Prints argument within hanging parentheses (i.e., parentheses that take
+% up no horizontal space).  Useful in tabular environments.
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
+
+%%
+% Prints an asterisk that takes up no horizontal space.
+% Useful in tabular environments.
+\newcommand{\hangstar}{\makebox[0pt][l]{*}}
+
+%%
+% Prints a trailing space in a smart way.
+\usepackage{xspace}
+
+
+% Prints the month name (e.g., January) and the year (e.g., 2008)
+\newcommand{\monthyear}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or
+  December\fi\space\number\year
+}
+
+
+% Prints an epigraph and speaker in sans serif, all-caps type.
+\newcommand{\openepigraph}[2]{%
+  %\sffamily\fontsize{14}{16}\selectfont
+  \begin{fullwidth}
+  \sffamily\large
+  \begin{doublespace}
+  \noindent\allcaps{#1}\\% epigraph
+  \noindent\allcaps{#2}% author
+  \end{doublespace}
+  \end{fullwidth}
+}
+
+% Inserts a blank page
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
+
+\usepackage{units}
+
+% typeset for font styles
+\usepackage{typeset-tufte-book}
+
+% make fullwidth part heading
+% \usepackage{fullwidthpart}
+
+%%
+% For tikz graphics
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+% Generates the index
+\usepackage{makeidx}
+\makeindex
+
+% Format of important things
+\newcommand{\superimp}[1]{\textcolor{RubineRed}{\textit{\uppercase{#1}}}}
+\newcommand{\imp}[1]{\textcolor{RoyalPurple}{\textit{#1}}}
+
+% book metadata
+\title{Notes on Heat Transfer Labs}
+\author[Sizhe Liu]{Sizhe Liu}
+
+\begin{document}
+
+% Front matter
+\frontmatter
+% r.3 full title page
+\maketitle
+
+% v.4 copyright page
+\newpage
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+Copyright \copyright\ \the\year\ \thanklessauthor
+
+% \par\smallcaps{Published by \thanklesspublisher}
+
+% \par\smallcaps{tufte-latex.googlecode.com}
+
+\par Licensed under the Apache License, Version 2.0 (the ``License''); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at \url{http://www.apache.org/licenses/LICENSE-2.0}. Unless
+required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an \smallcaps{``AS IS'' BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.\index{license}
+
+\par\textit{First printing, \monthyear}
+\end{fullwidth}
+
+\begin{fullwidth}
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+\end{fullwidth}
+
+\cleardoublepage
+\markboth{}{}
+~\vfill
+\begin{doublespace}
+\noindent\fontsize{18}{22}\selectfont\itshape
+\nohyphenation
+\begin{fullwidth}
+To Rena, Stefan, and Caitlyn\\
+For such a great semester we spent together
+\end{fullwidth}
+\end{doublespace}
+\vfill
+\vfill
+
+
+% Start the main matter (normal chapters)
+\mainmatter
+\input{lab1}
+\input{lab2}
+\input{lab3}
+\input{lab4}
+\input{lab5}
+\backmatter
+
+\printindex
+
+\end{document}
