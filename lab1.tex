@@ -1,1 +1,411 @@
 \chapter{Temperature Measurements}
+\begin{docspec}
+	Any knowledge that doesn't lead to new questions quickly dies out: it fails to maintain the \textit{temperature} required for sustaining life.----\textbf{Wislawa Szymborska}
+\end{docspec}
+
+This note is mainly about how we understand the concept of "\imp{temperature}"\index{temperature} in modern scientific discussion, and the tools for measuring temperature. For practical-oriented minds, the second section lists advantages and disadvantages of different tools, and the scenarios that would best fit the uses of various tools. 
+
+\section{Temperature as a Measurement of Kinetic Energy}
+If you ask a random student of physical science disciplines what \textit{is} temperature exactly, the answer would likely be "\textit{indicator of average kinetic energy of particles}". This argument was first implied by Swiss Physicist Danial Bernoulli in his 1738 paper\cite{bernoulli1738}. But it was not widely accepted during 18th century as scientists at that time believed that heat is kind of "\textit{fluid}" called "\textit{caloric}"\index{caloric}, rather than the energy of atomic motions\cite{brush2004history}. Several physicists had been worked on the idea of treating heat as a form of atomic motion since Bernoulli, but most of their results passed unnoticed until another scientific giant, James Maxwell, formulated his dynamical theory of gases in 1867\cite{maxwell1867illustrations}. To unpack this seemingly strange argument, we start from phenomena at atomic level and later scale them up to macroscopic scale. For gaseous systems, the relationship that bridges these two vastly different scales is the well-known "\imp{ideal gas law}"\index{ideal gas law},
+\begin{equation}
+	PV=nRT\label{pvnrt},
+\end{equation}
+with all the symbols taking their common meanings. Because what we will  deal with in this lab is mostly the ambient environment, here we derive a relationship between kinetic energy of gas molecules and temperature to prove the \imp{energy-temperature argument}\index{energy-temperature argument}. Our strategy is simple. Because temperature is already defined at the RHS of Eq.(\ref{pvnrt}), we will try to relate $ PV $ to energy of air molecules. Notice that $ pressure \times volume$ has an unit of energy, so our intuition tells us that \imp{energy of air molecule might be related to pressure}. To verify our intuition, we first make the following assumptions in a container full of gas molecules:
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\begin{enumerate}
+	\item gas molecules are treated as point mass in the container,
+	\item potential energy of each molecule is negligible,
+	\item the collisions between two molecules and between molecules and container walls are elastic, and
+	\item the wall of container is perfectly smooth and has no frictional effect.
+\end{enumerate}
+The first assumption ignores inner degrees of freedom(DOFs)\index{degree of freedom} of gas molecules\footnote{For polyatomic molecules, inner DOFs include the rotational and vibrational movements}. The validity of the assumption lies in the fact that the dimension of molecule is small compared with the size of container. The assumption \rom{2} implies the container is small enough so gravitational potential energy does not vary dramatically. The last two assumptions, however, deserve a closer look as they dictate the outcome of molecular collisions.
+\subsection{ Collisions at the wall: momentum exchange}
+There are two kinds of collisions: molecule-molecule collisions and molecule-wall collision. We now discuss them one-by-one by first setting molecular weight to be $m$ for all the air molecules. After a collision between two molecules, their velocities swap due to the assumption \rom{3}. When a molecule collides with the wall of container, because of assumption \rom{4}, its tangential velocity\index{tangential velocity} $ \vec{v}_t $ remains unchanged while its normal velocity\index{normal velocity} $ \vec{v}_n $ is flipped to its opposite equivalent (see Fig.\ref{fig:wall-collision}).
+\begin{marginfigure}
+\tikzset{
+	pattern size/.store in=\mcSize, 
+	pattern size = 5pt,
+	pattern thickness/.store in=\mcThickness, 
+	pattern thickness = 0.3pt,
+	pattern radius/.store in=\mcRadius, 
+	pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_gqkwxfdjm}{
+	\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_gqkwxfdjm}
+	{\pgfqpoint{0pt}{0pt}}
+	{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+	{\pgfpoint{\mcSize}{\mcSize}}
+	{
+		\pgfsetcolor{\tikz@pattern@color}
+		\pgfsetlinewidth{\mcThickness}
+		\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+		\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+		\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.6,xscale=1.6]
+	%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+	%Shape: Rectangle [id:dp6977111437989808] 
+	\draw  [pattern=_gqkwxfdjm,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (197.33,89) -- (224,89) -- (224,198) -- (197.33,198) -- cycle ;
+	%Shape: Circle [id:dp3281126532903248] 
+	\draw   (135.89,189.39) .. controls (133,185.92) and (133.48,180.77) .. (136.94,177.89) .. controls (140.41,175) and (145.56,175.48) .. (148.44,178.94) .. controls (151.33,182.41) and (150.86,187.56) .. (147.39,190.44) .. controls (143.92,193.33) and (138.77,192.86) .. (135.89,189.39) -- cycle ;
+	%Straight Lines [id:da4386757195015306] 
+	\draw    (148.44,178.94) -- (194.73,144.2) ;
+	\draw [shift={(196.33,143)}, rotate = 503.11] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Straight Lines [id:da25892863741645566] 
+	\draw  [dash pattern={on 4.5pt off 4.5pt}]  (147.44,143) -- (194.33,143) ;
+	\draw [shift={(196.33,143)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Straight Lines [id:da4639633342035875] 
+	\draw  [dash pattern={on 4.5pt off 4.5pt}]  (148.44,178.94) -- (148.44,144) ;
+	\draw [shift={(148.44,142)}, rotate = 450] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Straight Lines [id:da30242031118093016] 
+	\draw    (196.33,143) -- (149.04,107.26) ;
+	\draw [shift={(147.44,106.06)}, rotate = 397.08000000000004] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Straight Lines [id:da3881338480356915] 
+	\draw  [dash pattern={on 4.5pt off 4.5pt}]  (147.44,143) -- (147.44,108.06) ;
+	\draw [shift={(147.44,106.06)}, rotate = 450] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Straight Lines [id:da5597991081232256] 
+	\draw  [dash pattern={on 4.5pt off 4.5pt}]  (197.33,106.06) -- (149.44,106.06) ;
+	\draw [shift={(147.44,106.06)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (12,-3) -- (0,0) -- (12,3) -- cycle    ;
+	%Shape: Arc [id:dp8925427691394155] 
+	\draw  [draw opacity=0] (174.42,159.21) .. controls (172.16,153.72) and (171.84,147.99) .. (173.53,143.25) -- (193.62,154.89) -- cycle ; \draw   (174.42,159.21) .. controls (172.16,153.72) and (171.84,147.99) .. (173.53,143.25) ;
+	
+	% Text Node
+	\draw (171.39,160.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\vec{v}$};
+	% Text Node
+	\draw (171.39,112.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\vec{v}^{\prime}$};
+	% Text Node
+	\draw (159.39,132.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\overrightarrow{v_{n}}$};
+	% Text Node
+	\draw (127.39,149.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\overrightarrow{v_{t}}$};
+	% Text Node
+	\draw (127.39,115.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\overrightarrow{v_{t}}$};
+	% Text Node
+	\draw (165.39,95.97) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$-\overrightarrow{v_{n}}$};
+	% Text Node
+	\draw (162,150) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$\theta $};
+\end{tikzpicture}
+\caption{Molecular velocity before and after a collision between air molecule (the circle) and the wall of container}
+\label{fig:wall-collision}
+\end{marginfigure}
+
+The change in molecular momentum $ p $ during the collision in Fig.\ref{fig:wall-collision} is simply $ \Delta p = 2m\vec{v_n}=2m\vec{v}\cos(\theta) $, with $ \theta $ the angle between incoming velocity and its normal component. According to Newton's second law\index{Newton's second law}, \imp{the rate of momentum change equals to the force that single air molecule acts on the wall of container.} We also know that the pressure\index{pressure} is the total force that gas molecules act on the wall per unit area, so we can relate pressure $ P $ with $ \Delta p $ through the relationship
+\begin{equation}
+	P = \frac{1}{S}\left.\Sigma_{N_{tot}}\frac{dp_i}{dt}\right|_{\tau}\overset{\text{Newton's Law}}{=}\frac{1}{S}\Sigma_{N_{tot}}F_{i,\tau},
+	\label{eq:P-dp}
+\end{equation}
+where $ N_{tot} $ is the total number of molecules colliding with the wall at time instance $ \tau $, and $ S $ is the inner surface area of the container. $ \frac{dp_i}{dt}|_{\tau} $ and $ F_{i,\tau} $ are the \textit{"rate of change in momentum and molecular force of \textbf{ith} molecule at the time instant $ \tau $, respectively"}. The relation in Eq.(\ref{eq:P-dp}) is coherent with the strategy of relating "pressure" to molecular properties, but it faces a big problem because of the assumption \rom{3}. The elastic collision demands the action of gas molecule to be instantaneous at the wall, resulting a divergent definition of $ \frac{dp_i}{dt}|_{\tau} $. Based on our discussion of Fig.\ref{fig:wall-collision}, the time derivative in Eq.(\ref{eq:P-dp}) is, unfortunately,
+\begin{equation}
+	\frac{dp_i}{dt}|_{\tau} = \frac{m\vec{v}^{\prime}-m\vec{v}}{0}=\infty.
+	\label{eq:inf-dev}
+\end{equation}
+
+Instead of modifying our previous assumptions, we can add one more assumption to workaround this awkward situation, that is,
+\begin{center}
+	\imp{\rom{5}. the directions of molecular velocities have an uniform distribution.}
+\end{center}
+The assumption \rom{5} derives from the fact that our gaseous system is homogeneous and still, so there is no reason to suspect that a large portion of gas molecules move at the same direction. As we will see later, assumption \rom{5} allows us to replace the troublesome derivative with averaged physical quantities, from which a "pressure-energy" relationship naturally emerges. But right now, we are running out of ammunition as the math we developed so far is meant to describe actions of single molecule not "averaged" molecular action.  Thus, we need a new way to describe gas molecules.
+
+Let's now imagine that each gas molecule has a velocity vector attached to it. We collect all of the vectors and attach their tails to the origin of a spherical coordinate system. By doing so, we can assign a 3-tuple coordinate to each vector using its magnitude $ v $, polar angle\index{polar angle} $ \theta $, and azimuthal angle\index{azimuthal angle} $ \phi $ (see Fig.\ref{fig:vectorspr}). For a sphere of radius $ |\vec{v_1}| $, it contains all the velocities that have magnitudes less or equal to $ |\vec{v_1}| $. \imp{By counting the number of intersection points between the sphere and velocity vectors, we know how many gas molecules that move with velocities no slower than $ \vec{v_1} $}. On the other hand, if we draw another sphere of radius $ |\vec{v_2}|> |\vec{v_1}| $ in Fig. \ref{fig:vectorspr}, then the absolute difference in the intersection numbers on the two spheres tells us \imp{the number of gas numbers that move with velocities in a range from  $ \vec{v_1} $ to  $ \vec{v_2} $.}
+\begin{marginfigure}[-3in]
+	\tdplotsetmaincoords{60}{110}
+	\begin{tikzpicture}[scale=3.8,tdplot_main_coords]
+		
+		% variables
+		\def\rvec{1.8}
+		\def\thetavec{30}
+		\def\phivec{60}
+		
+		% axes
+		\coordinate (O) at (0,0,0);
+		\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+		\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+		\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+		
+		% vectors
+		\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+		\draw[-stealth,red,very thick] (O)  -- (P) node[above right] {$\vec{v_2}$};
+		\draw[dashed,red]   (O)  -- (Pxy);
+		\draw[dashed,red]   (P)  -- (Pxy);
+		\draw[dashed,red]   (Py) -- (Pxy);
+		\tdplotsetcoord{Q}{2.2}{50}{10}
+		\draw[-stealth,blue,very thick] (O)  -- (Q) node[above left] {$\vec{v_1}$};
+		% Add small circle at (Q)
+		\draw[fill = white!10] (Q) circle (0.5pt);
+		% arcs
+		\tdplotdrawarc[->]{(O)}{0.2}{0}{\phivec}
+		{anchor=north}{$\phi$}
+		\tdplotsetthetaplanecoords{\phivec}
+		\tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{0.5}{0}{\thetavec}
+		{anchor=south west}{$\theta$}
+		
+		% sphere
+		% Draw shaded circle
+		\shade[ball color = lightgray,
+		opacity = 0.5
+		] (0,0,0) circle (0.5cm);
+	\end{tikzpicture}
+	\caption{Spherical coordinate system for velocity vectors where the shaded sphere contains vectors with magnitudes less or equal to $ |\vec{v_1}| $. }
+	\label{fig:vectorspr}
+\end{marginfigure}
+We can call gas molecule by the spherical coordinates of its velocity for simplicity, i.e., for molecules moving with a velocity of $ (\theta,\phi, v) $, we name them as $v\theta\phi-$molecules\index{$ v\theta\phi- $molecule}. With this terminology, we are well-equipped to tackle the infinity derivative in Eq.(\ref{eq:inf-dev}) by defining averaged quantities based on another concept: mass flux\index{mass flux}.
+
+\subsection{Collisions at the wall: mass flux}
+\imp{The awkward infinity derivative in Eq.(\ref{eq:inf-dev}) would go away if we focus on what is happening on the wall within a finite amount of time rather than any specific time instance.} But wait, there is a lot happening during a finite time period $ \Delta\tau $, how can we track movements of all the gas molecules in the container? The answer is we can't and we don't need to. Since the pressure is measured at the wall of container, we only need to care about molecules that arrive at the wall within $ \Delta\tau $. \imp{Given arbitrary area $ dS $ on the wall of container, $ v\theta\phi-$molecules that will arrive $ dS $ are contained in a slant cylinder of side length $ v\Delta\tau $} (see Fig.\ref{fig:slant-cylinder} )\footnote{It's easy to prove this  argument. For molecules that move at directions very different from $ \vec{v} $ near the wall, they will landed on the area outside of $dS$ after $ \Delta\tau $. One the other hand, molecules moving in the same velocity $ \vec{v} $ but outside of the cylinder cannot reach $ dS $ within $ \Delta\tau $. }. If we let $ N(v,\theta,\phi) $ be the number of $ v\theta\phi-$molecules, then the number of molecules in the slant cylinders $ N_s(v,\theta,\phi) $ can be calculated as 
+\begin{marginfigure}[-0.1in]
+	\newcommand{\sampleScrew}[5]{%
+		\pgfmathsetmacro{\cylinderradius}{#1}
+		\pgfmathsetmacro{\cylinderheight}{#2}
+		\pgfmathsetmacro{\aspectratio}{#3}
+		\pgfmathsetmacro{\opacitycolor}{#4}
+		\pgfmathsetmacro{\dx}{#5}
+		% Cylinder fill:
+		\fill[  left color=gray!70,
+		right color=gray!70,
+		middle color=gray!40,
+		opacity=\opacitycolor] (\cylinderradius,0) -- (\cylinderradius+\dx,\cylinderheight) arc (360:180:\cylinderradius*1cm and \aspectratio*1cm) -- (-\cylinderradius,0) arc (180:0:\cylinderradius*1cm and \aspectratio*1cm);
+		% Bottom fill:
+		\fill[   top color=gray!95,
+		middle color=gray!70,
+		bottom color=gray!40,
+		opacity=\opacitycolor] (0,0) circle (\cylinderradius*1cm and \aspectratio*1cm);
+		% Top fill:
+		\fill[   top color=gray!70,
+		middle color=gray!40,
+		bottom color=gray!10,,
+		opacity=\opacitycolor] (0+\dx,\cylinderheight) circle (\cylinderradius*1cm and \aspectratio*1cm);   
+		% Cylinder lines:
+		\draw (-\cylinderradius+\dx,\cylinderheight) -- (-\cylinderradius,0) arc (180:360:\cylinderradius*1cm and \aspectratio*1cm)
+		-- (\cylinderradius+\dx,\cylinderheight) ++ (-\cylinderradius,0) circle (\cylinderradius*1cm and \aspectratio*1cm);
+		% Dashed line in the back:
+		\draw[densely dashed] (-\cylinderradius,0) arc (180:0:\cylinderradius*1cm and \aspectratio*1cm);
+	}
+\tdplotsetmaincoords{60}{110}
+\begin{tikzpicture}[scale=0.9]
+	\begin{scope}[canvas is xz plane at y=0,transform shape]
+		\draw (-2,-3) rectangle (2,3);
+	\end{scope}
+	\draw (-1.8,0,2) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {Wall};
+	\draw (-1.0,0,-0.2) node [anchor=north west][inner sep=0.75pt]  [font=\small]  {$dS$};
+	% axes
+	\coordinate (O) at (0,0,0);
+	\draw[thick,->] (0,0,0) -- (1.5,0,0) node[anchor=north east]{$y$};
+	\draw[thick,->] (0,0,0) -- (0,2,0) node[anchor=north east]{$z$};
+	\draw[thick,->] (0,0,0) -- (0,0,2.8) node[anchor=south east]{$x$};
+	% cylinder
+	\sampleScrew{1.}{2.5}{0.5}{0.2}{0.8}
+	% velocity vector
+	% vectors
+	\tdplotsetcoord{P}{5}{55}{63}
+	\draw[red,very thick,-] (O)  -- (P) node[right] {$v\Delta\tau$};
+	% Add small circle at (P) and (O)
+	\draw[fill = white!10] (P) circle (1.5pt);
+	\draw[fill = white!10] (O) circle (1.5pt);
+	\draw[dashed,red]   (O)  -- (Pxz);
+	\draw[dashed,red]   (P)  -- (Pxz);
+	% arcs
+	\tdplotsetrotatedcoords{-90}{0}{90}
+	\tdplotdrawarc[->,tdplot_rotated_coords,dashed,color=red]{(O)}{1.2}{-6}{38}{anchor=north,dashed, color=red}{$\phi$}
+	\tdplotsetrotatedcoords{0}{-90}{0}
+	\tdplotdrawarc[->,tdplot_rotated_coords,dashed,color=red]{(O)}{1.6}{0}{15}{anchor=south, color=red}{$\theta$}
+\end{tikzpicture}
+\caption{$v\theta\phi-$molecules that will arrive at $ S $ within next $ \Delta\tau $ period must be found in a slant cylinder with side length being $ v\Delta\tau $.}
+\label{fig:slant-cylinder}
+\end{marginfigure}
+\begin{equation}
+	N_s(v,\theta,\phi) = \rho_{v\theta\phi} v\Delta\tau\cos(\theta)dS
+	\label{eq:N_s}
+\end{equation}
+where $ \rho_{v\theta\phi} $ is the \textbf{number density}\index{number density} of $ v\theta\phi-$molecules. To get an expression of $ \rho_{v\theta\phi} $, we use again the spherical coordinate system in Fig. \ref{fig:vectorspr}. Let $ N_v $ be the number of intersection points (i.e. number of molecules) between a sphere of radius $ v $ and velocity vectors that have magnitudes no less than $ v $. Because of the assumption \rom{5}, the average number of intersections per unit spherical area is $ N_v/4\pi v^2 $. From this, the number of molecules moving in a direction between $ \theta $ and $ \theta+\Delta\theta $, and between $ \phi $ and $ \phi+\Delta\phi $ is 
+\begin{equation}
+	N_{\theta\phi} = \frac{N_v}{4\pi v^2}v^2\sin(\theta)\Delta\theta\Delta\phi=\frac{N}{4\pi}\sin(\theta)\Delta\theta\Delta\phi.
+	\label{eq:N_vtp}
+\end{equation}
+From Eq.(\ref{eq:N_vtp}), we can further obtain the number of $ \theta\phi-$molecules that have their velocities between $ v $ amd $ v+\Delta v $ to be
+\begin{equation}
+	n_{v\theta\phi}=\frac{N_v-N_{v+\Delta  v}}{4\pi}\sin(\theta)\Delta\theta\Delta\phi=\frac{\Delta N_v}{4\pi}\sin(\theta)\Delta\theta\Delta\phi,
+\end{equation}
+and
+\begin{equation}
+	\rho_{v\theta\phi} = \frac{n_{v\theta\phi}}{V}=\frac{\Delta N_v}{4\pi V}\sin(\theta)\Delta\theta\Delta\phi
+	\label{eq:rho_vtp}
+\end{equation}
+where $ V $ is the volume of container.
+
+Dividing both sides of Eq. (\ref{eq:N_s}) by $ \Delta\tau dS $ gives us the \textbf{ number of $ v\theta\phi- $molecules that collide with the wall per unit time per unit wall area}, $ \Phi(v,\theta, \phi) $\footnote{Notice that $ \Phi(v,\theta, \phi) $ has an unit of \textit{number/time/area}. It essentially tells number of molecules that arrive at an unit of area per unit time. And we now have a well-defined "time-derivative" quantity to play with!}, i.e.,
+\begin{equation}
+	\Phi(v,\theta, \phi) = \rho_{v\theta\phi} v\cos(\theta).
+	\label{eq:mass-flux}
+\end{equation}
+$ \Phi(v,\theta, \phi) $ is referred as mass flux of $ v\theta\phi- $molecules.
+
+Now that we have well-defined mass fluxes that is "time-derivative", we can free $ p_i $ in Eq.(\ref{eq:P-dp}) from the awkward $ \frac{d}{dt} $, and applied the derivative to its prefactor "$ \Sigma_{N_{tot}}/S $". To do so, we need to recast $ \Sigma_{N_{tot}}/S $ into a form with mass fluxes in it.
+
+\subsection{A ride back to ideal gas law}
+To recast Eq.(\ref{eq:P-dp}), we go back to Fig.\ref{fig:wall-collision} and notice that the change in momentum of $ v\theta\phi- $molecule after a collision is still 
+\begin{equation}
+	\Delta p = 2mv\cos(\theta),
+	\label{eq:dp}
+\end{equation}
+which is again independent of azimuthal angle $ \phi $. The character of \textit{azimuthal angle free} of the container has something to do with the assumption \rom{4}. Imagine there are receptors on the wall that absorb molecules only when they move in specific polar and azimuthal angles, then $ \Delta p $ will be $ \phi- $dependent\footnote{Physicists call this independent-dependent transition as "break in symmetry", and theory that studies symmetries of physical problems is called \textit{group theory}.}. But we will just stick to Eq.(\ref{eq:dp}) without losing too much generality. Now, the trick is: if we multiply $ \Delta p $ with $ \Phi(v,\theta,\phi) $, the product has an unit of $ [\text{momentum}\times \text{molecule number}/(\text{time}\times\text{area})] $, identical to that of pressure! Thus, we conclude that \imp{the product $ \Delta p\times\Phi(v,\theta,\phi) $ gives the pressure that is caused by bombarding of the $ v\theta- $molecules, and is felt by the wall of container.} The pressure is therefore the integration of $ \Delta p\times\Phi(v,\theta,\phi) $ over $ \theta $, $ \phi $, and $ v $. Combining Eq.(\ref{eq:rho_vtp}), (\ref{eq:mass-flux}) and (\ref{eq:dp}) gives
+\begin{equation}
+	P = \Sigma_{v}\int_0^{2\pi}\int_0^{\pi/2}\frac{\Delta N_v}{2\pi V}mv^2\sin(\theta)\cos^2(\theta)d\theta d\phi=\frac{m}{3}\Sigma_{v}\frac{\Delta N_vv^2}{V},
+	\label{eq:sum_v}
+\end{equation}
+where $ \Sigma_v $ is a summation over all possible magnitudes of velocity. The last equivalence in Eq.(\ref{eq:sum_v}) hides the average of $ v^2 $, i.e.\footnote{$ N_{tot} $ here is still the total number of gas molecules in the container},
+\begin{equation}
+	\bar{v^2}=\frac{\Sigma_v\Delta N_vv^2}{N_{tot}}.
+\end{equation}
+So we can write
+\begin{equation}
+	PV = N_{tot}\dfrac{1}{3}m\bar{v^2} = nRT.
+\end{equation}
+The middle part in the equation above is very much like averaged kinetic energy of particles times total number of molecules. If we write the gas constant $ R $ as a product of Avogadro's constant\index{Avogadro's constant} $ N_A $ and Boltzmann constant $ k_B $\index{Boltzmann constant}, we have $ N_{tot}=nN_A $ and finally,
+\begin{equation}
+	\frac{1}{2}m\bar{v^2}=\frac{3k_BT}{2}.
+	\label{eq:kinetic-temp}
+\end{equation}
+Eq.(\ref{eq:kinetic-temp}) clearly shows that temperature relates to the averaged kinetic energy of gas molecule by a constant $ \frac{3k_B}{2} $. Because the container has a 3D space, and we have the velocity squared to be $ v^2=v_x^2+v_y^2+v_z^2 $. Eq.(\ref{eq:kinetic-temp}) also indicates that the averaged kinetic energy is simply $ k_BT/2 $ at each dimension.\qed
+
+\section{Tools for Measuring Temperature}
+Tools for measuring temperature can be roughly categorized into three classes: thermoelectric, electro-activated, and radiation-activated. In this section, we will emphasize the use of the first two classes, and their primary differences are listed in Table.\ref{tab:toolclass}.
+\begin{table}[h]
+	\footnotesize
+	\begin{tabular}{m{0.2\linewidth}|m{0.2\linewidth}m{0.2\linewidth}m{0.2\linewidth}}
+		\hline\\[-0.6em]
+		& Thermoelectric          & Electro-activated               & Radiation-activated        \\ \hline\\[-0.6em]
+		Principle   & Seebeck effect          & temperature-resistance relation & radiative heat transfer    \\ \hline \\[-0.6em]
+		Accuracy    & intermediate            & high/intermediate               & intermediate/low           \\ \hline \\[-0.6em]
+		Application & point-wise measurements & point-wise mesurements          & area-averaged measurements \\ \hline
+	\end{tabular}
+\caption{Comparison between different classes of temperature measurement tools}
+\label{tab:toolclass}
+\end{table}
+
+Thermoelectric tools rely on Seebeck effect\index{Seebeck effect} where temperature gradient in thermally conductive material induces electron flow and establish finite electric potential drop from hot end to cold end. The possibly simplest application of Seebrck effect is thermocouple\index{thermocouple} in which two wires made of dissimilar materials join at one end and connect to voltage meter at the other end. When the joint is heating up or cooling down, two distinct potential drops establish in two wires, and their difference is measured at the voltage meter. As what Fig.\ref{fig:seebeck} shows, if two wires made of identical material are joined, no net voltage will be established at voltage meter, and no meaningful temperature reading will be obtained.
+\begin{marginfigure}
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.6]
+		%uncomment if require: \path (0,292); %set diagram left start at 0, and has height of 292
+		
+		%Straight Lines [id:da9614192384072037] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (165.5,63.5) -- (356.47,63.5) ;
+		%Straight Lines [id:da07510445336112237] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=4.5]    (165.5,107.5) -- (356.47,107.5) ;
+		%Shape: Circle [id:dp975532310518684] 
+		\draw  [fill={rgb, 255:red, 242; green, 6; blue, 6 }  ,fill opacity=1 ] (111.5,86.98) .. controls (111.5,82.85) and (114.85,79.5) .. (118.98,79.5) .. controls (123.12,79.5) and (126.47,82.85) .. (126.47,86.98) .. controls (126.47,91.12) and (123.12,94.47) .. (118.98,94.47) .. controls (114.85,94.47) and (111.5,91.12) .. (111.5,86.98) -- cycle ;
+		%Straight Lines [id:da8384536984843729] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (126.47,86.98) -- (165.5,63.5) ;
+		%Straight Lines [id:da5505328944279341] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=4.5]    (126.47,86.98) -- (165.5,107.5) ;
+		%Curve Lines [id:da6453480759070611] 
+		\draw [line width=2.25]    (130.97,70.3) .. controls (137.85,54.38) and (160.05,43.28) .. (208.01,43.79) .. controls (254.05,44.28) and (306.39,43.77) .. (337.23,44.24) ;
+		\draw [shift={(340.97,44.3)}, rotate = 181.08] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (17.49,-7.84) .. controls (11.12,-3.68) and (5.29,-1.07) .. (0,0) .. controls (5.29,1.07) and (11.12,3.68) .. (17.49,7.84)   ;
+		%Shape: Circle [id:dp8734144401180582] 
+		\draw  [line width=3]  (392,87.63) .. controls (392,79.31) and (398.74,72.57) .. (407.06,72.57) .. controls (415.37,72.57) and (422.12,79.31) .. (422.12,87.63) .. controls (422.12,95.94) and (415.37,102.68) .. (407.06,102.68) .. controls (398.74,102.68) and (392,95.94) .. (392,87.63) -- cycle ;
+		%Curve Lines [id:da8690745781108749] 
+		\draw [line width=2.25]    (129.62,106.1) .. controls (145.12,126.1) and (160.05,122.28) .. (208.01,122.79) .. controls (254.05,123.28) and (306.39,122.77) .. (337.23,123.24) ;
+		\draw [shift={(340.97,123.3)}, rotate = 181.08] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (17.49,-7.84) .. controls (11.12,-3.68) and (5.29,-1.07) .. (0,0) .. controls (5.29,1.07) and (11.12,3.68) .. (17.49,7.84)   ;
+		%Curve Lines [id:da6093265216838053] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (356.47,63.5) .. controls (383.12,63.1) and (403.12,60.1) .. (407.06,72.57) ;
+		\draw [shift={(356.47,63.5)}, rotate = 359.14] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ][line width=4.5]      (0, 0) circle [x radius= 9.05, y radius= 9.05]   ;
+		%Curve Lines [id:da18625543635601338] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=4.5]    (356.47,107.5) .. controls (386.62,108.1) and (399.62,110.6) .. (407.06,102.68) ;
+		\draw [shift={(356.47,107.5)}, rotate = 1.14] [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=1 ][line width=4.5]      (0, 0) circle [x radius= 9.05, y radius= 9.05]   ;
+		%Straight Lines [id:da2865298165201887] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (169,202) -- (359.97,202) ;
+		%Straight Lines [id:da7095872004340709] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (169,246) -- (359.97,246) ;
+		%Shape: Circle [id:dp7382883335230345] 
+		\draw  [fill={rgb, 255:red, 242; green, 6; blue, 6 }  ,fill opacity=1 ] (115,225.48) .. controls (115,221.35) and (118.35,218) .. (122.48,218) .. controls (126.62,218) and (129.97,221.35) .. (129.97,225.48) .. controls (129.97,229.62) and (126.62,232.97) .. (122.48,232.97) .. controls (118.35,232.97) and (115,229.62) .. (115,225.48) -- cycle ;
+		%Straight Lines [id:da7681230115222524] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (129.97,225.48) -- (169,202) ;
+		%Straight Lines [id:da13291213179161177] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (129.97,225.48) -- (169,246) ;
+		%Curve Lines [id:da032136407871758865] 
+		\draw [line width=2.25]    (134.47,208.8) .. controls (141.35,192.88) and (163.55,181.78) .. (211.51,182.29) .. controls (257.55,182.78) and (309.89,182.27) .. (340.73,182.74) ;
+		\draw [shift={(344.47,182.8)}, rotate = 181.08] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (17.49,-7.84) .. controls (11.12,-3.68) and (5.29,-1.07) .. (0,0) .. controls (5.29,1.07) and (11.12,3.68) .. (17.49,7.84)   ;
+		%Shape: Circle [id:dp6908250661351404] 
+		\draw  [line width=3]  (395.5,226.13) .. controls (395.5,217.81) and (402.24,211.07) .. (410.56,211.07) .. controls (418.87,211.07) and (425.62,217.81) .. (425.62,226.13) .. controls (425.62,234.44) and (418.87,241.18) .. (410.56,241.18) .. controls (402.24,241.18) and (395.5,234.44) .. (395.5,226.13) -- cycle ;
+		%Curve Lines [id:da31805862036279187] 
+		\draw [line width=2.25]    (133.12,244.6) .. controls (148.62,264.6) and (163.55,260.78) .. (211.51,261.29) .. controls (257.55,261.78) and (309.89,261.27) .. (340.73,261.74) ;
+		\draw [shift={(344.47,261.8)}, rotate = 181.08] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=2.25]    (17.49,-7.84) .. controls (11.12,-3.68) and (5.29,-1.07) .. (0,0) .. controls (5.29,1.07) and (11.12,3.68) .. (17.49,7.84)   ;
+		%Curve Lines [id:da23154467589735672] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (359.97,202) .. controls (386.62,201.6) and (406.62,198.6) .. (410.56,211.07) ;
+		\draw [shift={(359.97,202)}, rotate = 359.14] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ][line width=4.5]      (0, 0) circle [x radius= 9.05, y radius= 9.05]   ;
+		%Curve Lines [id:da8780962685712723] 
+		\draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=4.5]    (359.97,246) .. controls (390.12,246.6) and (403.12,249.1) .. (410.56,241.18) ;
+		\draw [shift={(359.97,246)}, rotate = 1.14] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ][line width=4.5]      (0, 0) circle [x radius= 9.05, y radius= 9.05]   ;
+		
+		% Text Node
+		\draw (392,80) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {V};
+		% Text Node
+		\draw (400,220.07) node [anchor=north west][inner sep=0.75pt]   [align=left] {V};
+		% Text Node
+		\draw (73.5,62.07) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {Joint};
+		% Text Node
+		\draw (73.5,201.57) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {Joint};
+		% Text Node
+		\draw (209.5,17.57) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{1}$};
+		% Text Node
+		\draw (218.5,128.57) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{2}$};
+		% Text Node
+		\draw (168.5,77.07) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{net} =\Delta V_{1} -\Delta V_{2} \neq 0$};
+		% Text Node
+		\draw (170.5,215.07) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{net} =\Delta V_{1} -\Delta V_{1} =0$};
+		% Text Node
+		\draw (216.5,158.57) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{1}$};
+		% Text Node
+		\draw (211.51,268.29) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta V_{2}$};
+		
+		
+	\end{tikzpicture}
+	\caption{Seebeck effect in thermocouple where two dissimilar materials establish non-zero potential drop at voltage meter (top) while two identical materials establish zero potential drop (bottom)}
+	\label{fig:seebeck}
+\end{marginfigure}
+Unlike thermoelectric tools, electro-activated tools require activation of current in inner circuit where resistance of alloy material is measured. It is well-known that electric resistance of metallic materials varies with temperature. Materials that have their resistances increasing/decreasing with increasing temperature are said to have positive/negative temperature coefficients(or PTC/NTC)\index{positive temperature coefficient}\index{negative temperature coefficient}. Among all the electro-activated tools, resistance temperature detector(RTD)\index{RTD} and thermistor\index{thermistor} are the most popular ones. RTD usually uses materials with PTC, which have nearly linear relationship between temperature and resistance\footnote{\href{https://www.te.com/usa-en/industries/sensor-solutions/insights/understanding-rtds.html?gclid=CjwKCAjwpKCDBhBPEiwAFgBzj9uMIm1BxZoP0VSCeXPknE0WwvLcBD-PecdvHpXxdz3BS3VTQAeTWBoCeD0QAvD_BwE}{See some of common temperature-resistance curves here}}. As a result, \imp{measurements from RTD are repeatable and thus more reliable than thermistor}. However, the typical activation current in RTD is 1 mA or less, resulting in much longer waiting time before the device reaches its steady state. Thermistor usually uses NTC material, which has steep resistance-temperature curve at low temperature range (see Fig.\ref{fig:ntc}). Because of this, thermistor is very sensitive when measuring low/intermediate temperatures, but the nonlinearity of resistance-temperature curve could cause inaccuracy in measurements.
+\begin{marginfigure}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+	
+	%Shape: Axis 2D [id:dp8355204524349471] 
+	\draw  (325,213.5) -- (526.33,213.5)(345.13,20) -- (345.13,235) (519.33,208.5) -- (526.33,213.5) -- (519.33,218.5) (340.13,27) -- (345.13,20) -- (350.13,27)  ;
+	%Curve Lines [id:da060399250952004935] 
+	\draw [line width=1.5]    (361.33,53) .. controls (363.33,112) and (358.33,139) .. (395.33,165) .. controls (432.33,191) and (472.33,191) .. (501.33,191) ;
+	%Straight Lines [id:da9638120296825841] 
+	\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (362.33,95) -- (362.33,214) ;
+	%Straight Lines [id:da49212158355390756] 
+	\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (378.33,149) -- (378.33,213) ;
+	%Straight Lines [id:da22492848100563] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (378.33,149) -- (345.33,149) ;
+	%Straight Lines [id:da4716211046921893] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (362.33,95) -- (344.33,95) ;
+	%Straight Lines [id:da3892022930868947] 
+	\draw    (341.33,149) -- (341.33,95) ;
+	\draw [shift={(341.33,95)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+	\draw [shift={(341.33,149)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+	%Straight Lines [id:da803545264911092] 
+	\draw    (378.33,218) -- (362.33,218) ;
+	\draw [shift={(362.33,218)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+	\draw [shift={(378.33,218)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+	
+	% Text Node
+	\draw (503,218) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$T$};
+	% Text Node
+	\draw (324,22) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$R$};
+	% Text Node
+	\draw (309,111) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta R$};
+	% Text Node
+	\draw (357,224) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\Delta T$};
+	
+\end{tikzpicture}
+\caption{Resistance-temperature curve for NTC material, where steep gradient is found at low temperature}
+\label{fig:ntc}
+\end{marginfigure}
+
+Finally, radiation-activated tools use bolometer array\index{bolometer array} to receive electromagnetic radiation from the surface of target. The energy carried by electromagnetic radiation is transfomed into thermal energy to heat up thermometer in inner circuit to give temperature readings. As of Aprial,2021, a large amount of infrared thermometers\index{infrared thermometer} have been employed in the COVID testing process, and they can also be grouped into the class of radiation-activated tools.
+
+\section{Few More Words on Infinite Time Derivative}
+The infinite time derivative introduced in Eq.(\ref{eq:inf-dev}) might puzzle readers who have previous experience of experimenting classical-mechanical phenomena, such as potential-kinetic energy transformation. Everything people observe in those experiments is smooth and differentiable. The idea of infinite time derivative there is, simply unfeasible. The most famous counter example is perhaps Brownian motion\index{Brownian motion}, which describes random behavior of small particles. By taking a closer look at the trajectories of Brownian motion, Einstein, quite shockingly, found that it is not possible to find well-defined derivative anywhere along the trajectory. Such bizarre feature of Brownian motion, as shown by Feynman\cite{feynman2010quantum}, can be related to the stochastic nature of our world.

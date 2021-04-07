@@ -276,7 +276,7 @@ Dodecahedron &$(15+7\sqrt{5})a^{3}/4$& ${2.694}/{a}$  \\ \hline
 \caption{$r_{sv}$ of common shapes with $a$ being the length of edge/radius}\
 \label{tab4-3}
 \end{table}
-With these formula, we can also plot $r_{sv}$ against the volumes of these shapes in Fig.\ref{fig4-4}. This simple analysis shows that for a given volume of lumped component, tetrahedron has the largest $r_{sv}$ while sphere has the smallest. Because large $r_{sv}$ results in large $\alpha$, Fig.\ref{fig4-2} and \ref{fig4-4} indicate that \imp{the $T_{body}$ drops(cooling) and increases(heating) much quicker in a tetrahedral component than in a spherical component}. As the lumped body becomes more and more bulky, $r_{sv}$ of all kinds of polyhedral bodies decrease in an order of $O(1/x)$, resulting in more sluggish cooling and heating process. Of course, the bulky component also undermines the validity of lumped capacitance assumption.
+With these formula, we can also plot $r_{sv}$ against the volumes of these shapes in Fig.\ref{fig4-4}. This simple analysis shows that for a given volume of lumped component, tetrahedron has the largest $r_{sv}$ while sphere has the smallest. Because large $r_{sv}$ results in large $\alpha$, Fig.\ref{fig4-2} and \ref{fig4-4} indicate that \imp{the $T_{body}$ drops(cooling) and increases(heating) much quicker in a tetrahedral body than in a spherical body}. As the lumped body becomes more and more bulky, $r_{sv}$ of all kinds of polyhedral bodies decrease in an order of $O(1/x)$, resulting in more sluggish cooling and heating process. Of course, the bulky component also undermines the validity of lumped capacitance assumption.
 
 \begin{marginfigure}[0in]
 \begin{tikzpicture}[x=0.7pt,y=0.9pt,yscale=0.9,xscale=0.70]
@@ -306,5 +306,291 @@ With these formula, we can also plot $r_{sv}$ against the volumes of these shape
 
 \section{A kinetic theory for thermal conductivity of gas}
 \begin{docspec}
-TL;DR: I indulged myself to write this section only because deriving macroscopic law from statistical behavior of molecules is intellectually satisfying. For impatient readers, please check the most important results at the end.
+TL;DR: I indulged myself to write this section only because deriving macroscopic law from statistical behavior of molecules is intellectually satisfying. For impatient readers, please check the most important results at the end. For ambitious readers, please refer to Sears' book for accessible introduction to statistical thermodynamics\cite{sears1975thermodynamics}, and C.V. Heer's account of stochastic perspectives of thermal physics\cite{heer2012statistical}.
 \end{docspec}
+
+To simplify our derivation without losing generality, we again employ some of the assumptions introduced in Lab1, and they are
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\begin{enumerate}
+	\item gas molecules are treated as hard spherical mass of radius $ r $, and
+	\item potential energy of each molecule is negligible.
+\end{enumerate}
+Careful readers might find that assumption \rom{1} is now considering molecular volumes comparing to the old one.  In lab1, we only care about the collision between molecules and the wall of container where the cross section of single molecule is negligible. Inside the body of a container, where molecules collide with each other, making molecular size finite helps to visualize process of momentum/energy exchange and to calculate important physical quantities that describe molecular motions. One of such physical quantities is the so-called \imp{mean free path}(MFP)\index{mean free path}, which measures on average the distance a gas molecule needs to travel before it collides with another molecule. Knowing MFP is important for our purpose of relating thermal conductivity to molecular motions.As we will show in later sections, viscosity and conductivity stem from momentum and energy exchange between adjacent gas molecules, and MFT provides a measurement of how often such exchanges could happen and bridges thermal conductivity with other thermodynamic quantities (i.e. state parameters).  So let's start by deriving a simple expression for MFP below.
+
+\subsection{Scattering and Mean free path }
+From the assumption \rom{1}, we can define the exclusion volume for single molecule as $ 4\pi r^3/3 $, i.e., two gas molecules can not have overlap in their molecular volumes. Let us now consider a thin slice of thickness $ \Delta x $ in a cubic container of edge length $ L $. The slice is thin enough so that molecules contained in the slice does not overlap with each other long $ x- $dimension (see Fig. \ref{fig:target-bullet}).
+\begin{marginfigure}
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Rectangle [id:dp14429340171670446] 
+		\draw   (359,51) -- (565.33,51) -- (565.33,229.4) -- (359,229.4) -- cycle ;
+		%Shape: Rectangle [id:dp32354541052017527] 
+		\draw   (372,45) -- (578.33,45) -- (578.33,223.4) -- (372,223.4) -- cycle ;
+		%Straight Lines [id:da7074428847272893] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (359,51) -- (372,45) ;
+		\draw [shift={(372,45)}, rotate = 515.22] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(359,51)}, rotate = 515.22] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		%Straight Lines [id:da9764043397060111] 
+		\draw    (359,229.4) -- (372,223.4) ;
+		%Straight Lines [id:da7488556721129279] 
+		\draw    (565.33,229.4) -- (578.33,223.4) ;
+		%Straight Lines [id:da5942213972622079] 
+		\draw    (565.33,51) -- (578.33,45) ;
+		%Shape: Circle [id:dp13513954211829737] 
+		\draw  [fill={rgb, 255:red, 193; green, 191; blue, 191 }  ,fill opacity=1 ] (475.17,122.28) .. controls (475.17,115.06) and (481.02,109.2) .. (488.25,109.2) .. controls (495.48,109.2) and (501.33,115.06) .. (501.33,122.28) .. controls (501.33,129.51) and (495.48,135.37) .. (488.25,135.37) .. controls (481.02,135.37) and (475.17,129.51) .. (475.17,122.28) -- cycle ;
+		%Straight Lines [id:da6896831294830664] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (475.17,105.28) -- (501.33,105.28) ;
+		\draw [shift={(501.33,105.28)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(475.17,105.28)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		%Shape: Circle [id:dp6999071649743681] 
+		\draw  [fill={rgb, 255:red, 193; green, 191; blue, 191 }  ,fill opacity=1 ] (425.17,126.28) .. controls (425.17,119.06) and (431.02,113.2) .. (438.25,113.2) .. controls (445.48,113.2) and (451.33,119.06) .. (451.33,126.28) .. controls (451.33,133.51) and (445.48,139.37) .. (438.25,139.37) .. controls (431.02,139.37) and (425.17,133.51) .. (425.17,126.28) -- cycle ;
+		%Shape: Circle [id:dp8447371235394252] 
+		\draw  [fill={rgb, 255:red, 193; green, 191; blue, 191 }  ,fill opacity=1 ] (484.17,181.28) .. controls (484.17,174.06) and (490.02,168.2) .. (497.25,168.2) .. controls (504.48,168.2) and (510.33,174.06) .. (510.33,181.28) .. controls (510.33,188.51) and (504.48,194.37) .. (497.25,194.37) .. controls (490.02,194.37) and (484.17,188.51) .. (484.17,181.28) -- cycle ;
+		%Shape: Circle [id:dp9021087063137504] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (423,179.67) .. controls (423,177.09) and (425.09,175) .. (427.67,175) .. controls (430.24,175) and (432.33,177.09) .. (432.33,179.67) .. controls (432.33,182.24) and (430.24,184.33) .. (427.67,184.33) .. controls (425.09,184.33) and (423,182.24) .. (423,179.67) -- cycle ;
+		%Shape: Circle [id:dp26186478190204787] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (533,129.67) .. controls (533,127.09) and (535.09,125) .. (537.67,125) .. controls (540.24,125) and (542.33,127.09) .. (542.33,129.67) .. controls (542.33,132.24) and (540.24,134.33) .. (537.67,134.33) .. controls (535.09,134.33) and (533,132.24) .. (533,129.67) -- cycle ;
+		%Shape: Circle [id:dp5362736059677999] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (389,93.67) .. controls (389,91.09) and (391.09,89) .. (393.67,89) .. controls (396.24,89) and (398.33,91.09) .. (398.33,93.67) .. controls (398.33,96.24) and (396.24,98.33) .. (393.67,98.33) .. controls (391.09,98.33) and (389,96.24) .. (389,93.67) -- cycle ;
+		%Shape: Circle [id:dp22591518852148873] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (516,79.67) .. controls (516,77.09) and (518.09,75) .. (520.67,75) .. controls (523.24,75) and (525.33,77.09) .. (525.33,79.67) .. controls (525.33,82.24) and (523.24,84.33) .. (520.67,84.33) .. controls (518.09,84.33) and (516,82.24) .. (516,79.67) -- cycle ;
+		%Shape: Circle [id:dp5354524164848686] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (457,156.67) .. controls (457,154.09) and (459.09,152) .. (461.67,152) .. controls (464.24,152) and (466.33,154.09) .. (466.33,156.67) .. controls (466.33,159.24) and (464.24,161.33) .. (461.67,161.33) .. controls (459.09,161.33) and (457,159.24) .. (457,156.67) -- cycle ;
+		%Shape: Circle [id:dp8445769418144385] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (447,81.67) .. controls (447,79.09) and (449.09,77) .. (451.67,77) .. controls (454.24,77) and (456.33,79.09) .. (456.33,81.67) .. controls (456.33,84.24) and (454.24,86.33) .. (451.67,86.33) .. controls (449.09,86.33) and (447,84.24) .. (447,81.67) -- cycle ;
+		%Shape: Circle [id:dp5082335629816249] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (531,190.67) .. controls (531,188.09) and (533.09,186) .. (535.67,186) .. controls (538.24,186) and (540.33,188.09) .. (540.33,190.67) .. controls (540.33,193.24) and (538.24,195.33) .. (535.67,195.33) .. controls (533.09,195.33) and (531,193.24) .. (531,190.67) -- cycle ;
+		%Shape: Circle [id:dp9902014886485704] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (388,182.67) .. controls (388,180.09) and (390.09,178) .. (392.67,178) .. controls (395.24,178) and (397.33,180.09) .. (397.33,182.67) .. controls (397.33,185.24) and (395.24,187.33) .. (392.67,187.33) .. controls (390.09,187.33) and (388,185.24) .. (388,182.67) -- cycle ;
+		%Shape: Circle [id:dp952119316749187] 
+		\draw  [fill={rgb, 255:red, 193; green, 191; blue, 191 }  ,fill opacity=1 ] (436.17,200.28) .. controls (436.17,193.06) and (442.02,187.2) .. (449.25,187.2) .. controls (456.48,187.2) and (462.33,193.06) .. (462.33,200.28) .. controls (462.33,207.51) and (456.48,213.37) .. (449.25,213.37) .. controls (442.02,213.37) and (436.17,207.51) .. (436.17,200.28) -- cycle ;
+		%Shape: Circle [id:dp9768621182270503] 
+		\draw  [fill={rgb, 255:red, 193; green, 191; blue, 191 }  ,fill opacity=1 ] (386.17,154.28) .. controls (386.17,147.06) and (392.02,141.2) .. (399.25,141.2) .. controls (406.48,141.2) and (412.33,147.06) .. (412.33,154.28) .. controls (412.33,161.51) and (406.48,167.37) .. (399.25,167.37) .. controls (392.02,167.37) and (386.17,161.51) .. (386.17,154.28) -- cycle ;
+		%Shape: Circle [id:dp5933956722813136] 
+		\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (443,199.67) .. controls (443,197.09) and (445.09,195) .. (447.67,195) .. controls (450.24,195) and (452.33,197.09) .. (452.33,199.67) .. controls (452.33,202.24) and (450.24,204.33) .. (447.67,204.33) .. controls (445.09,204.33) and (443,202.24) .. (443,199.67) -- cycle ;
+		%Straight Lines [id:da39624072741998007] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (359,234.4) -- (565.33,234.4) ;
+		\draw [shift={(565.33,234.4)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(359,234.4)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		%Straight Lines [id:da3003697992677039] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (352,51) -- (352,229.4) ;
+		\draw [shift={(352,229.4)}, rotate = 270] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(352,51)}, rotate = 270] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		%Straight Lines [id:da9062896342290824] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (389,85.67) -- (398.33,85.67) ;
+		\draw [shift={(398.33,85.67)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(389,85.67)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		
+		% Text Node
+		\draw (478,84) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$4r$};
+		% Text Node
+		\draw (346,25) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$\Delta x$};
+		% Text Node
+		\draw (457,237) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$L$};
+		% Text Node
+		\draw (334,130) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$L$};
+		% Text Node
+		\draw (385,66) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$0$};
+		% Text Node
+		\draw (475.17,134.2) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 74; green, 74; blue, 74 }  ,opacity=1 ] [align=left] {target};
+		% Text Node
+		\draw (378,100) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ] [align=left] {bullet};
+		
+		
+	\end{tikzpicture}
+	\caption{Scattering cross section area due to molecules in a $ L\times L\times \Delta x $ slice.}
+	\label{fig:target-bullet}
+\end{marginfigure}
+Let $ n $ be the number of gas molecules per unit volume in the container, and the number of molecules in the slice is then $ n\times L^2\times\Delta x $. Consider now that a beam of cross section area  $ L\times L $ is shooting towards the slice. Because of the assumption \rom{1}, we can treat molecules in the slice (i.e. the "target") as hard spheres of diameter $ 4r $, and treat molecules in the beam (i.e., the "bullet") as point mass to enforce the assumption of finite molecular size. Bullets that hit on targets will be scattered out of the beam, and the area that can be hit by bullets is called the \imp{scattering cross section}\index{scattering cross section}. In our case, the cross section area is simply $ 4\pi r^2 \times  n\times L^2\times\Delta x$. Let $ N $ and $ \Delta N $ be the total number of bullets and \textbf{change in bullet number after the beam's pass through the slice}. Then we have the following relation,
+\begin{equation}
+	\frac{\Delta N}{N}=\frac{\text{scattering cross section area}}{\text{total cross section area}}=\frac{-4\pi r^2 \times  n\times \cancel{L^2}\times\Delta x}{\cancel{L^2}},
+	\label{eq:dN-N}
+\end{equation}
+where the minus indicates decrease in total number of "bullets". Integrating both sides of Eq.(\ref{eq:dN-N}) gives an expression for the number of "bullets" that survive scattering at $ x $ as
+\begin{equation}
+	N = N_0\exp(-4\pi r^2 n x)
+	\label{eq:survival-num}
+\end{equation}
+with $ N_0 $ being total number of "bullets" at $ x=0 $. If we define $ \sigma =  4\pi r^2$ as cross section area of single molecule and substitute Eq.(\ref{eq:survival-num}) back into (\ref{eq:dN-N}), we obtain an expression for \textbf{"bullets" number that collide with "targets" at arbitrary coordinate $ x $} as
+\begin{equation}
+	\Delta N(x) = \sigma n\Delta x N_0\exp(-\sigma n x).
+	\label{eq:dN}
+\end{equation}
+Using Eq.(\ref{eq:dN}) we can calculate the \imp{averaged travel distance before any one of $ N_0 $ bullets collides with a "target"} as
+\begin{equation}
+	l = \frac{\Sigma x\Delta N}{N_0} = \sigma n\int_0^{\infty} x\exp(-\sigma n x)dx = \frac{1}{\sigma n}.
+	\label{eq:mfp}
+\end{equation}
+Eq.(\ref{eq:mfp}) gives an expression for mean free path, and it can be further modified by noticing that the "target" molecules are treated as still objects. In reality, the "targets" are also moving, but here we will stick to this simpler form of MFP to proceed our analysis\footnote{On the assumption that all molecules have the same speed, Clausius obtained the result $ l = \frac{0.75}{\sigma n} $.}. By reversing our logic above, we can conclude that MFP from molecule's last collision is also given by Eq.(\ref{eq:mfp}), i.e., \imp{at any given time instance, gas molecules on average have traveled $ l $ from their last collisions and will need to travel another $ l $ to have another collision}. We will use this conclusion below to drive viscosity $ \eta $ and thermal conductivity $ \kappa $ of gases.
+\subsection{Viscosity from momentum transport}
+If we substitute $ \sigma $ and $ n $ for oxygen molecules in Eq.(\ref{eq:mfp}), MFP between two subsequent collisions of single oxygen molecule is about $ 10^{-7}m $, three orders of magnitude larger than the size of oxygen molecule. So it is really weird to find that nearly all the real gases are viscous since how come frictional forces exist among gas molecules at first place when they are far separated? To answer this question, let us imagine two parallel planes with one of them moving with a constant velocity of $ u $ to the right (see Fig. \ref{fig:vis-profile}). The velocity $ u $ is much slower than molecular velocities, so the whole system can still be treated as if it's at equilibrium state. As a result, a linear velocity profile is found between the planes. 
+\begin{marginfigure}
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.2,xscale=1.2]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Shape: Rectangle [id:dp6504995050404908] 
+		\draw   (68,65) -- (195.33,65) -- (195.33,74.4) -- (68,74.4) -- cycle ;
+		%Shape: Rectangle [id:dp7129301360016395] 
+		\draw   (68,111) -- (195.33,111) -- (195.33,120.4) -- (68,120.4) -- cycle ;
+		%Straight Lines [id:da9429750518588422] 
+		\draw    (195.33,74.4) -- (217.33,74.4) ;
+		\draw [shift={(220.33,74.4)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+		%Straight Lines [id:da44294189343321344] 
+		\draw    (132.33,110.4) -- (132.33,44.4) ;
+		\draw [shift={(132.33,42.4)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+		%Straight Lines [id:da32464864409845406] 
+		\draw    (132.33,74.4) -- (159.33,74.4) ;
+		\draw [shift={(162.33,74.4)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+		%Straight Lines [id:da32461013403386263] 
+		\draw    (162.33,74.4) -- (132.33,110.4) ;
+		%Straight Lines [id:da6156441304137001] 
+		\draw    (132.33,86.4) -- (150.33,86.4) ;
+		\draw [shift={(153.33,86.4)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+		%Straight Lines [id:da9344339997871164] 
+		\draw    (131.33,99.4) -- (141.33,99.4) ;
+		\draw [shift={(144.33,99.4)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+		%Straight Lines [id:da6156441304137001] 
+		\draw    (192.33,111) -- (216.33,111) ;
+		\draw [shift={(216.33,111)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+		%Straight Lines [id:da8741902353398002] 
+		\draw  [dash pattern={on 4.5pt off 4.5pt}]  (71.33,93.4) -- (198.33,93.4) ;
+		
+		% Text Node
+		\draw (136,28) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$y$};
+		% Text Node
+		\draw (215,105) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$x$};
+		% Text Node
+		\draw (199,55) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$u$};
+	\end{tikzpicture}
+\caption{Vertical velocity profile developed in gas between two parallel planes. The top plane moves with velocity $ u $ to the right}
+\label{fig:vis-profile}
+\end{marginfigure}
+
+At an imaginary plane (e.g. the dashed line in the figure), there must be exchange of molecular momenta as molecules that pass the plane from below have on average slower velocities at $ x- $direction than those pass it from above. \textit{\textbf{Would it be that the viscosity of gas is resulted from such momentum exchange?}} To calculate the net momentum exchange at the imaginary plane, we first need to know \textbf{the average vertical distance $ \bar{y} $ from the imaginary plane where molecules had last collision before they pass the plane}.  As we will see later, $ \bar{y} $ helps us to find the average $ x- $momentum of molecules that pass the imaginary plane.
+
+Based on the terminology we developed in Lab1, the mass flux of molecules arriving at the imaginary plane in a polar angle $ \theta $ is obtained by integrating over azimuthal angle and velocity magnitude in Eq.(\ref{eq:mass-flux}), i.e,
+\begin{equation}
+	\Phi_{\theta} = \frac{1}{2}n\bar{v}\sin(\theta)\cos(\theta)\Delta \theta.
+	\label{eq:Phi-theta}
+\end{equation}
+The total mass flux is then
+\begin{equation}
+	\Phi =\int_0^{\pi/2}\Phi_{\theta}d\theta =\frac{1}{4}n\bar{v}.
+	\label{eq:Phi-tot}
+\end{equation}
+Given Eq.(\ref{eq:Phi-theta}) and (\ref{eq:Phi-tot}), the averaged vertical distance $\bar{y}$ is then
+\begin{equation}
+	\bar{y} = \frac{n\bar{v}\int_0^{\pi/2}\sin(\theta)\cos(\theta)l\cos(\theta)d\theta}{2\Phi}=\frac{2}{3}l,
+	\label{eq:bar-y}
+\end{equation}
+where $ l\cos(\theta) $ is the vertical distance between the imaginary plane and the latest collisions that cause molecules arriving at the plane at a polar angle of $ \theta $ (see Fig.\ref{fig:lcostheta}).
+\begin{marginfigure}
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1.4,xscale=1.4]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Straight Lines [id:da6518501381186546] 
+		\draw    (360.33,166) -- (474.33,166) ;
+		%Straight Lines [id:da00009935868456067976] 
+		\draw  [dash pattern={on 5.5pt off 3.5pt}]  (397.17,166) -- (397.17,87.4) ;
+		%Straight Lines [id:da17820993869324053] 
+		\draw    (456.33,98.4) -- (398.48,164.5) ;
+		\draw [shift={(397.17,166)}, rotate = 311.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+		\draw  [dash pattern={on 7.5pt off 1.5pt}] (456.4,84.81) -- (462.64,101.25)(467.82,89.87) -- (451.21,96.18) ;
+		%Curve Lines [id:da029089183474892533] 
+		\draw    (397.17,126.7) .. controls (413.33,119.4) and (418.33,121.4) .. (426.75,132.2) ;
+		%Straight Lines [id:da32957310524805206] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (401.17,170) -- (460.33,102.4) ;
+		\draw [shift={(460.33,102.4)}, rotate = 491.19] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(401.17,170)}, rotate = 491.19] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		%Straight Lines [id:da24542469822084534] 
+		\draw  [dash pattern={on 4.5pt off 4.5pt}]  (397.33,98.4) -- (456.33,98.4) ;
+		%Straight Lines [id:da43445737065249856] 
+		\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (391.17,166) -- (391.33,98.4) ;
+		\draw [shift={(391.33,98.4)}, rotate = 450.14] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		\draw [shift={(391.17,166)}, rotate = 450.14] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (0,5.59) -- (0,-5.59)   ;
+		
+		% Text Node
+		\draw (406,106) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\theta $};
+		% Text Node
+		\draw (428,67) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {Latest collision};
+		\draw (428,167) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize] [align=left] {Imaginary plane};
+		% Text Node
+		\draw (437,131) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$l$};
+		% Text Node
+		\draw (371,155) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,rotate=-270]  {$l\cos \theta $};
+		
+		
+	\end{tikzpicture}
+\caption{Vertical distance between the imaginary plane and the latest collision}
+\label{fig:lcostheta}
+\end{marginfigure}
+
+Let $ u_0 $ be the $ x- $velocity at the imaginary plane, then the $ x- $momentum of molecules pass the plane from above is them
+\begin{equation}
+	p_x^{+}=m(u_0+\frac{2}{3}l\frac{du}{dy}),
+	\label{eq:px+}
+\end{equation}
+according to Taylor expansion. Similarly, for those below the plane, their $ x- $momentum is simply
+\begin{equation}
+	p_x^{-}=m(u_0-\frac{2}{3}l\frac{du}{dy}),
+	\label{eq:px-}
+\end{equation}
+and the change in $ x- $momentum from the "fast" to the "slow" is 
+\begin{equation}
+	\Delta p_x = m\frac{4}{3}l\frac{du}{dy}.\label{eq:dp-x}
+\end{equation}
+Multiplying both sides of Eq.(\ref{eq:dp-x}) by the $\Phi$ in Eq.(\ref{eq:Phi-tot}) gives the "viscous force" per unit area at the LHS\footnote{we used this trick before in Lab1}, i.e.,
+\begin{equation}
+	\frac{F_{vis}}{A} = \frac{4}{3}ml\Phi\frac{du}{dy}.
+\end{equation}
+Since the viscosity coefficient $ \eta $ is defined through the equation 
+\begin{equation}
+	\frac{F_{vis}}{A} = \eta\frac{du}{dy},
+	\label{eq:viscosity}
+\end{equation}
+we finally obtain an explicit expression for $ \eta $ as
+\begin{equation}
+	\eta = \frac{m\bar{v}}{3\sigma}.
+	\label{eq:eta}
+\end{equation}
+Eq.(\ref{eq:eta}) is very interesting as it indicates that the viscosity of gas does not depend on gas density but average molecular velocity. With the method developed here, deriving an expression for thermal conductivity coefficient $ \kappa $ becomes fairly easy.
+\subsection{Thermal conductivity from energy transport}
+We first notice that Fourier's law looks a lot like Eq.(\ref{eq:viscosity}). Instead of having viscous force per unit area at LHS, we have, in Fourier's law, the heat flux $ q $ proportional to temperature gradient, i.e.,
+\begin{equation}
+	q = -\kappa\frac{dT}{dy}.
+	\label{eq:fourier}
+\end{equation}
+We again imagine an imaginary plane in the gas, at which the temperature is $ T_0 $. The energy of single molecule at the plane is $ c_v^{\prime}T_0 $ with $ c_v^{\prime} $ being the "specific heat" per molecule. By following the formalism in Eq. (\ref{eq:px+}) and (\ref{eq:px-}), the molecular energies above and below the plane before their arrival are
+\begin{equation}
+	E_{above} = c_v^{\prime}(T_0+\frac{2}{3}l\frac{dT}{dy})
+\end{equation}
+and
+\begin{equation}
+	E_{below} = c_v^{\prime}(T_0-\frac{2}{3}l\frac{dT}{dy}).
+\end{equation}
+Following the same logic laid out in the previous subsection\footnote{Notice that $ dT/dy $ is negative here, so $ E_{below}-E_{above}>0 $}, we have
+\begin{equation}
+	\Phi\times(E_{below}-E_{above}) = -\frac{c_v^{\prime}\bar{v}}{3\sigma}\frac{dT}{dy} = -\kappa\frac{dT}{dy},
+\end{equation}
+and
+\begin{equation}
+	\kappa = \frac{c_v^{\prime}\bar{v}}{3\sigma}.
+	\label{eq:kappa}
+\end{equation}
+From Eq.(\ref{eq:kappa}), we find that the thermal conductivity of gas is inversely proportional to the size of molecule. The gas molecule that can move fast and store lots of thermal energy tends to have better thermal conductivity.
+\section{Inadequacy of hard-sphere assumption}
+Based on our derivation of $ \eta $ and $ \kappa $, the ratio of the two gives
+\begin{equation}
+	\kappa/\eta = \frac{c_v^{\prime}}{m} = \frac{c_v}{M}
+\end{equation} 
+where $ c_v $ and $ M $ are the specific heat and the molar mass of gas molecule, respectively. From this, we have
+ \begin{equation}
+ 	\frac{\eta c_v}{\kappa M}=1.
+ 	\label{eq:unity-eta-kapp}
+ \end{equation} 
+
+Everything in Eq.(\ref{eq:unity-eta-kapp}) is experimentally measurable, so we can test this relationship on real gases. However, real gases usually have such value around $ 0.5 $, not $ 1 $\footnote{For air, the ratio has a value of 0.51546.}, which means our hard-sphere assumption does not capture the whole story of molecular collisions. But at least it got the order of magnitude right. To make the assumption more realistic, we might have no choice but to consider what is happening at the moment of molecular collision, an interesting realm for chemists, physicists, and me.

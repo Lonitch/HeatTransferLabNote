@@ -1,0 +1,41 @@
+\contentsline {chapter}{Preface}{10}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Temperature Measurements}{11}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Temperature as a Measurement of Kinetic Energy}{11}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1} Collisions at the wall: momentum exchange}{12}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Collisions at the wall: mass flux}{14}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}A ride back to ideal gas law}{16}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Tools for Measuring Temperature}{17}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Few More Words on Infinite Time Derivative}{18}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Basics of Heat Conduction, Inductively}{20}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Two concepts: Thermal energy and Specific Heat}{20}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Fourier's Law: Governing Equation for Heat Transport in Materials}{22}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Contact thermal resistance}{23}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Heat Equation: Thermal Energy, Specific Heat, and Fourier's Law in one Place}{24}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Summary}{25}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Basics of Convective and Radiative Heat Transfer}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Newton's Cooling Law: When the Heat Conductor is Exposed}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}When the insulator is still there}{26}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}When the insulator isn't there}{27}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Buoyancy: things happen to heated molecules}{30}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}A Few Words on Radiation}{31}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Juice from the History}{32}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Convection at Surface of Lumped Capacitance }{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}How to be Lumped?}{34}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Biot number}{35}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Nussalt number and thermal conductivity of fluid}{36}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Cooling and heating lumped components}{38}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Effects of material properties on convection}{40}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Effects of geometry of lumped components on convection}{40}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}A kinetic theory for thermal conductivity of gas}{41}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Scattering and Mean free path }{42}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Viscosity from momentum transport}{44}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Thermal conductivity from energy transport}{46}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Inadequacy of hard-sphere assumption}{46}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Understanding Heat Exchanger}{48}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Basic Working Principles of Heat Exchanger}{48}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Common Types of Heat Exchangers}{49}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Number of Transfer Units (NTU) Method}{51}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Some Thoughts from a Newly-graduated Ph.D.}{54}{section.5.4}%
+\contentsline {chapter}{Bibliography}{56}{chapter*.5}%
+\contentsline {chapter}{Index}{57}{chapter*.6}%
+\contentsfinish 

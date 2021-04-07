@@ -2,7 +2,9 @@
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 \usepackage{titlesec}
-\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{0308}{\"u}
+\usepackage[T1]{fontenc}
 %%
 % Front page layout
 \makeatletter
@@ -126,11 +128,22 @@
 % make fullwidth part heading
 % \usepackage{fullwidthpart}
 
+% use Roman numericals inline
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
 %%
 % For tikz graphics
 \usepackage{physics}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tikz-qtree}
+\usepackage{tkz-berge}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,3d,arrows.meta,angles,decorations.markings, backgrounds, positioning,intersections,shapes}
 \usepackage{mathdots}
 \usepackage{yhmath}
 \usepackage{cancel}
@@ -208,14 +221,13 @@ under the License.\index{license}
 \noindent\fontsize{18}{22}\selectfont\itshape
 \nohyphenation
 \begin{fullwidth}
-To Rena, Stefan, and Caitlyn\\
-For such a great semester we spent together
+To those who tried to make ME320 lab better
 \end{fullwidth}
 \end{doublespace}
 \vfill
 \vfill
 
-
+\input{preface}
 % Start the main matter (normal chapters)
 \mainmatter
 \input{lab1}
@@ -224,6 +236,11 @@ For such a great semester we spent together
 \input{lab4}
 \input{lab5}
 \backmatter
+\bibliographystyle{plain}
+\begin{fullwidth}
+	\bibliography{generalbib}
+\end{fullwidth}
+
 
 \printindex
 
